@@ -6,7 +6,7 @@ const Footer = () => {
   
   
   return (
-    <div className='sm:mt-[1rem]'>
+    <div className='mt-[1rem]'>
     <h1>Footer</h1>
     </div>
     )

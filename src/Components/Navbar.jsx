@@ -13,7 +13,9 @@ const Navbar = () => {
   return (
     <div>
     <div className='w-full h-[3rem] bg-[#333] grid grid-cols-6 sm:justify-items-tretch items-center text-2xl font-semibold text-[#ff00ee] fixed top-0 left-0 px-[4px]'>
+        <NavLink to="/">
         <img src={logopng} alt="website logo" className="w-[45px] rounded-[50%] align-middle sm:col-span-1"/>
+        </NavLink>
       <ul className='hidden col-span-5 sm:grid gap-x-[10px] grid-cols-5 justify-center items-center mx-auto'>
       <NavLink to="/">
         <li className='cursor-pointer'><button>Home</button></li>
@@ -41,11 +43,21 @@ const Navbar = () => {
     {
     isOpenMenu && <div className={`vertical-navbar w-2/6 h-[50%] rounded-bl-md sm:hidden fixed right-0 top-[3rem]`}>
       <ul className='w-[100%] h-[100%] bg-[#444] rounded-bl-md grid grid-rows justify-center items-center text-2xl font-semibold text-[#ff00ee]'>
+      <NavLink to="/" onClick={handleClick}>
         <li className='cursor-pointer'><button>Home</button></li>
+      </NavLink>
+      <NavLink to="/projects"  onClick={handleClick}>
         <li className='cursor-pointer'><button>Projects</button></li>
+      </NavLink>
+      <NavLink to="/skills"  onClick={handleClick}>
         <li className='cursor-pointer'><button>Skills</button></li>
+      </NavLink>
+      <NavLink to="/about"  onClick={handleClick}>
         <li className='cursor-pointer'><button>About Me</button></li>
+      </NavLink>
+      <NavLink to="/contact"  onClick={handleClick}>
         <li className='cursor-pointer'><button>Contact</button></li>
+      </NavLink>
       </ul>
     </div>
     }
