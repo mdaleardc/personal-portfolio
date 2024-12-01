@@ -6,7 +6,7 @@ const Achievements = () => {
   
   
   return (
-    <div className='mt-[3.3rem]'>
+    <div className='mt-[1rem]'>
     <h1>Achievements</h1>
     </div>
     )

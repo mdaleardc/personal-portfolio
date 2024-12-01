@@ -4,8 +4,7 @@
  
  const Home = () => {
   return (
-    <div className='mt-[3.3rem]'>
-    Home
+    <div className='mt-[3rem]'>
     <MyProfile />
     <Achievements />
     </div>
