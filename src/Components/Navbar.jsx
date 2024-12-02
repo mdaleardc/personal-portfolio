@@ -41,7 +41,7 @@ const Navbar = () => {
     </div>
     <div>
     {
-    isOpenMenu && <div className={`vertical-navbar w-2/6 h-[50%] rounded-bl-md sm:hidden fixed right-0 top-[3rem]`}>
+    isOpenMenu && <div className={`vertical-navbar w-2/6 h-[50%] rounded-bl-md sm:hidden fixed right-0 top-[3rem] z-[100]`}>
       <ul className='w-[100%] h-[100%] bg-gradient-to-r from-[#346bbb] to-[#FF0095] rounded-bl-md grid grid-rows justify-center items-center text-2xl font-semibold text-[#ffff]'>
       <NavLink to="/home" onClick={handleClick}>
         <li className='cursor-pointer'><button>Home</button></li>
