@@ -57,7 +57,7 @@ const Achievements = () => {
         <div key={index} className='mx-auto bg-gray-700 rounded-lg text-white pb-1 border-[3px] border-gray-400'>
         <img src={achievement.csc} alt={`${achievement.name} screen shot`} className='rounded-md'/>
         <h2 className='text-2xl font-semibold text-[#0ef] m-2'>{achievement.name}</h2>
-        <a href={achievement.url} target='_blank' className='cursor-pointer hover:text-[#2fa] text-xl mr-2'>Learn more</a>
+        <a href={achievement.url} target='_blank' className='cursor-pointer hover:text-[#2fa] text-xl ml-2'>Learn more</a>
         {
         <div onClick={()=>handleClick(index)} className='mt-2 text-right'>
           <FaHeart size='30' className={` ${likes[index] ? "text-[#f1a]" : "text-[gray]"} pl-1 inline`}/>
