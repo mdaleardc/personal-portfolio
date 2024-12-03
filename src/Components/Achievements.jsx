@@ -3,8 +3,13 @@ import RWD from "../assets/responsive_web.jpg";
 import JADS from "../assets/javaScript_data_structure.jpg";
 import JADSB from "../assets/javaScript_data_structure(beta).jpg";
 import FEDL from "../assets/front-end.jpg";
+import { FaHeart } from "react-icons/fa";
+import { useState } from "react";
+
+
 
 const Achievements = () => {
+  
   
   const achievementsData = [
     {
@@ -28,6 +33,18 @@ const Achievements = () => {
       url: "https://www.freecodecamp.org/certification/fccd7a29415-55b6-4d72-8159-33bbf2f7e102/front-end-development-libraries",
     }
     ];
+    
+  const [likes, setLikes] = useState(()=> Array(achievementsData.length).fill(false));
+  
+  const handleClick = (index) => {
+    setLikes((prevLikes) => {
+      const updatedLikes = [...prevLikes];
+      updatedLikes[index] = !updatedLikes[index];
+      return updatedLikes;
+      
+    })
+    
+  }
   
   
   return (
@@ -40,7 +57,13 @@ const Achievements = () => {
         <div key={index} className='mx-auto bg-gray-700 rounded-lg text-white pb-4 border-[3px] border-gray-400'>
         <img src={achievement.csc} alt={`${achievement.name} screen shot`} className='rounded-md'/>
         <h2 className='text-2xl font-semibold text-[#0ef] m-2'>{achievement.name}</h2>
-        <a href={achievement.url} target='_blank' className='cursor-pointer p-4 hover:text-[#2fa] text-xl acitive:text-red-500'>Learn more</a>
+        <a href={achievement.url} target='_blank' className='cursor-pointer hover:text-[#2fa] text-xl mr-2'>Learn more</a>
+        {
+        <div onClick={()=>handleClick(index)} className='mt-2'>
+          <FaHeart size='30' className={` ${likes[index] ? "text-[#f1a]" : "text-[gray]"} pl-1 inline`}/>
+          <span className="pl-2 mt-[10px]" >Like</span> 
+        </div>
+        }
         </div>
         )
       })
@@ -51,3 +74,4 @@ const Achievements = () => {
 }
 
 export default Achievements;
+
