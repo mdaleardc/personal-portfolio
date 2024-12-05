@@ -6,8 +6,8 @@ const Footer = () => {
   
   
   return (
-    <div className='mt-[1rem]'>
-    <h1>Footer</h1>
+    <div className='bg-gradient-to-tr from-[#0ea] to-[#234]'>
+    <h1>In development</h1>
     </div>
     )
 }

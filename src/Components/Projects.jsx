@@ -1,30 +1,58 @@
-import profile from "../assets/profile.jpg";
+import yummyFood from "../assets/yummy-food.jpg";
+import ecomerce from "../assets/ecomerce.jpg";
+import todoList from "../assets/todo-list.jpg";
+import reactHooks from "../assets/react-hooks.jpg";
+import productLanding from "../assets/product-landing.jpg";
+import reactRouter from "../assets/react-routing.jpg";
 
 const Projects = () => {
   const projectData = [
     {
       id: 1,
-      name: "Tic Tac Toe",
-      img: profile,
+      name: "Yummy food App",
+      img: yummyFood,
       description:
-        "This Tic Tac Toe web game is created using ReactJS, Vite, and Tailwind CSS. Play now by clicking the 'Read More' button!",
-      url: "https://www...com",
+        "Yummy Food App: Your go-to for quick recipes, meal ideas, and cooking inspiration. Delicious made easy!",
+      url: "https://yummmyfoods.netlify.app/",
     },
     {
       id: 2,
-      name: "Calculator",
-      img: profile,
+      name: "E-Comerce",
+      img: ecomerce,
       description:
-        "This Calculator app helps you perform basic calculations. Built with ReactJS and Tailwind CSS.",
-      url: "https://www...com",
+        "ShopEase: Simplify your shopping with great products, exclusive deals, and fast delivery!",
+      url: "https://ecomercewebdev.netlify.app/",
     },
     {
       id: 3,
-      name: "Weather App",
-      img: profile,
+      name: "ToList App",
+      img: todoList,
       description:
-        "Check real-time weather updates with this app, created using ReactJS and APIs.",
-      url: "https://www...com",
+        "TaskFlow: Organize your day, prioritize tasks, and get more done effortlessly!",
+      url: "https://todolistaapwebdev.netlify.app/",
+    },
+    {
+      id: 4,
+      name: "React Hooks",
+      img: reactHooks,
+      description:
+        "Learn React Hooks: All React hook section are effectively explained for the beginner!",
+      url: "https://reacthookswebdev.netlify.app/",
+    },
+    {
+      id: 5,
+      name: "Product Landing",
+      img: productLanding,
+      description:
+        "Explore my portfolio: A showcase of innovative web solutions, from sleek landing pages to interactive applications. Discover my passion for crafting user-friendly designs and efficient functionality!",
+      url: "https://productlandingweb.netlify.app/",
+    },
+    {
+      id: 6,
+      name: "React Router",
+      img: reactRouter,
+      description: "Learn React Router:React Routing section are effectively explained for the beginner!",
+      url: "https://reactrouterwebdev.netlify.app/",
     },
   ];
 
@@ -34,7 +62,7 @@ const Projects = () => {
         My <span className="text-[#00FFEF]">Projects</span>
       </h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-[1rem] p-[10px]">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-[1.5rem] p-[10px]">
         {projectData.map((item) => (
           <div
             key={item.id}
