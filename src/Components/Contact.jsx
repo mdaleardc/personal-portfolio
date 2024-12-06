@@ -1,12 +1,55 @@
-import 'boxicons'
-import { FaXTwitter } from "react-icons/fa6"
+import 'boxicons';
+import { FaXTwitter } from "react-icons/fa6";
+import { useState, useRef } from "react";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
-  
-  
-  
+  const form = useRef();
+  const [value, setValue] = useState({
+    fullName: "",
+    email: "",
+    message: "",
+  });
+
+  const validateEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
+  const handleChange = (e) => {
+    setValue({ ...value, [e.target.name]: e.target.value });
+  };
+
+  const handSubmit = (e) => {
+    e.preventDefault();
+    if (value.fullName.trim() === "") {
+      alert("Please enter your full name!");
+    } else if (value.email.trim() === "" || !validateEmail(value.email)) {
+      alert("Please enter a valid email address!");
+    } else if (value.message.trim() === "") {
+      alert("Please enter your message!");
+    } else {
+      emailjs
+        .sendForm(
+          "service_itpl5lq",
+          "template_j9png0o",
+          form.current, {
+            publicKey: "FkRzi5LjkTcvvEnnp",
+          })
+        .then(() => {
+          alert("Email sent successfully!");
+          setValue({ fullName: "", email: "", message: "" });
+        })
+        .catch((error) => {
+          console.error("Failed to send email", error.text);
+          alert("An error occurred while sending the email. Please try again later.");
+        });
+    }
+  };
+
   return (
-    <div className='py-[3rem] bg-gradient-to-tr from-[#123] to-[#321]'>
+    <div className="py-[3rem] bg-gradient-to-tr from-[#123] to-[#321]">
+    
     <div className='text-white text-xl font-normal tracking-wider px-4 flex flex-col gap-2'>
     <h2 className='text-[#0ef] text-3xl font-semibold text-center py-[1rem]'>Let's Collaborate With Me</h2>
     <p className='indent-8 max-w-lg mx-auto text-justify leading-relaxed'>Are you passionate about web development and looking for an opportunity to collaborate with a dedicated and skilled developer? Look no further!</p>
@@ -39,8 +82,62 @@ const Contact = () => {
     </div>
     </div>
     </div>
+      <div className='mx-2'>
+      <h1 className="text-[#0ef] text-center text-2xl font-semibold my-1 tracking-wider">What is on Your Mind?</h1>
+      <p className="text-white text-center tracking-wider">Feel free to share even if you have a very small idea on your mind.</p>
+      </div>
+      <div className="mx-[5px] sm:mx-auto max-w-lg py-[1rem] border-2 border-white rounded">
+        <form
+          className="flex flex-col gap-y-2 justify-center items-center"
+          onSubmit={handSubmit}
+          ref={form}
+          method="post"
+        >
+          <div className="w-5/6">
+            <label htmlFor="fullName" className="sr-only">Full Name</label>
+            <input
+              id="fullName"
+              name="fullName"
+              type="text"
+              placeholder="Full name"
+              value={value.fullName}
+              onChange={handleChange}
+              className="outline-none w-full h-[2rem] rounded-md p-[5px] text-white border-[1px] border-white bg-transparent tracking-wider focus:border-[#0ef] focus:shadow-md"
+            />
+          </div>
+          <div className="w-5/6">
+            <label htmlFor="email" className="sr-only">Email Address</label>
+            <input
+              id="email"
+              name="email"
+              type="text"
+              placeholder="Email address"
+              value={value.email}
+              onChange={handleChange}
+              className="outline-none w-full h-[2rem] rounded-md p-[5px] text-white border-[1px] border-white bg-transparent tracking-wider focus:border-[#0ef] focus:shadow-md"
+            />
+          </div>
+          <div className="w-5/6">
+            <label htmlFor="message" className="sr-only">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="Write your message"
+              value={value.message}
+              onChange={handleChange}
+              className="outline-none w-full rounded-md p-[5px] text-white border-[1px] border-white bg-transparent tracking-wider focus:border-[#0ef] focus:shadow-md"
+            ></textarea>
+          </div>
+          <input
+            type="submit"
+            value="Send"
+            className="rounded-lg uppercase text-white border-2 p-2 py-1 tracking-wider cursor-pointer hover:bg-[#0ef] hover:text-black"
+          />
+        </form>
+      </div>
     </div>
-    )
-}
+  );
+};
 
 export default Contact;
