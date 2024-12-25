@@ -44,7 +44,7 @@ const Projects = () => {
       name: "Product Landing",
       img: productLanding,
       description:
-        "Explore my portfolio: A showcase of innovative web solutions, from sleek landing pages to interactive applications. Discover my passion for crafting user-friendly designs and efficient functionality!",
+        "Explore my portfolio: Discover my passion for crafting user-friendly designs and efficient functionality!",
       url: "https://productlandingweb.netlify.app/",
     },
     {
