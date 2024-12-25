@@ -21,7 +21,7 @@ const Projects = () => {
       img: ecomerce,
       description:
         "ShopEase: Simplify your shopping with great products, exclusive deals, and fast delivery!",
-      url: "https://ecomercewebdev.netlify.app/",
+      url: "https://eshipify.netlify.app/",
     },
     {
       id: 3,
