@@ -6,8 +6,8 @@ export default defineConfig({
   plugins: [
     react(),
     sitemap({
-      hostname: 'https://ismaildevcode.netlify.app', // Replace with your domain
-      routes: ['/'], // Add your site routes here
-    }),
+  hostname: 'https://ismaildevcode.netlify.app',
+  routes: ['/', '/about', '/contact'], // Add only your actual site routes
+}),
   ],
 });
