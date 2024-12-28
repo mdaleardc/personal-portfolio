@@ -1,7 +1,7 @@
 import yummyFood from "../assets/yummy-food.jpg";
 import ecomerce from "../assets/ecomerce.jpg";
 import todoList from "../assets/todo-list.jpg";
-import reactHooks from "../assets/react-hooks.jpg";
+import youtube_clone from "../assets/youtube_clone_thumbnail.jpg"
 import productLanding from "../assets/product-landing.jpg";
 import reactRouter from "../assets/react-routing.jpg";
 
@@ -33,14 +33,6 @@ const Projects = () => {
     },
     {
       id: 4,
-      name: "React Hooks",
-      img: reactHooks,
-      description:
-        "Learn React Hooks: All React hook section are effectively explained for the beginner!",
-      url: "https://reacthookswebdev.netlify.app/",
-    },
-    {
-      id: 5,
       name: "Product Landing",
       img: productLanding,
       description:
@@ -48,12 +40,19 @@ const Projects = () => {
       url: "https://productlandingweb.netlify.app/",
     },
     {
-      id: 6,
+      id: 5,
       name: "React Router",
       img: reactRouter,
       description: "Learn React Router:React Routing section are effectively explained for the beginner!",
       url: "https://reactrouterwebdev.netlify.app/",
     },
+    {
+      id: 6,
+      name: "YouTube Clone",
+      img: youtube_clone,
+      description: "YouTube Clone: This project is a simplified YouTube clone built using ReactJS and styled with Tailwind CSS. It demonstrates the ability to design and implement a user-friendly video streaming interface inspired by YouTube's layout.",
+      url: "https://youtube-clone-flax-seven.vercel.app",
+    }
   ];
 
   return (
