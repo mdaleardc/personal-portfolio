@@ -3,7 +3,7 @@ import ecomerce from "../assets/ecomerce.jpg";
 import todoList from "../assets/todo-list.jpg";
 import youtube_clone from "../assets/youtube_clone_thumbnail.jpg"
 import productLanding from "../assets/product-landing.jpg";
-import reactRouter from "../assets/react-routing.jpg";
+import enquery_mern from "../assets/enquery_mern.jpg";
 
 const Projects = () => {
   const projectData = [
@@ -41,10 +41,10 @@ const Projects = () => {
     },
     {
       id: 5,
-      name: "React Router",
-      img: reactRouter,
-      description: "Learn React Router:React Routing section are effectively explained for the beginner!",
-      url: "https://reactrouterwebdev.netlify.app/",
+      name: "User Inquiry Management System (MERN Stack)",
+      img: enquery_mern,
+      description: "A full-stack web app using MongoDB, Express.js, ReactJS, and Node.js for managing user inquiries. It features full CRUD operations with a responsive UI styled by Tailwind CSS. The frontend communicates with a secure backend API, and the server is deployed on Render.",
+      url: "https://mern-client-enquery.vercel.app/",
     },
     {
       id: 6,

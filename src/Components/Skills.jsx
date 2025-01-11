@@ -5,8 +5,10 @@ import {
   FaReact
 } from "react-icons/fa6";
 import {
-  RiTailwindCssFill
+  RiTailwindCssFill,
+  RiNodejsLine
 } from "react-icons/ri";
+import { SiMongodb, SiExpress } from "react-icons/si";
 
 const Skills = () => {
   
@@ -35,6 +37,21 @@ const Skills = () => {
     name: "Tailwind CSS",
     icon: <RiTailwindCssFill size='30' className='text-[#0077FF]'/>,
     lavel: 75,
+    },
+    {
+    name: "NodeJs",
+    icon: <RiNodejsLine size='30' className='text-[#339933]'/>,
+    lavel: 85,
+    },
+    {
+      name: "ExpressJs",
+      icon: <SiExpress size='35' className='text-zinc-900'/>,
+      lavel: 70,
+    },
+    {
+      name: "MongoDB",
+      icon: <SiMongodb size='35' className='text-[#47A248]'/>,
+      lavel: 65
     }
     ]
   
@@ -54,8 +71,8 @@ const Skills = () => {
         <h3 className='mx-[1rem] text-[#FFffFF]'>{skill.name}</h3>
         </div>
         <div className="bg-[#123] w-[95%] mx-auto rounded-lg">
-        <div className="bg-[#33ffff] h-[0.9rem] rounded-md relative" style={{width: `${skill.lavel}%`}}>
-        <p className={`text-sm text-white absolute top-[-3px] right-2`}>{skill.lavel}%</p>
+        <div className={`${skill.lavel >= 70 ? 'bg-green-500' : 'bg-yellow-500'} h-[0.9rem] rounded-md relative`} style={{width: `${skill.lavel}%`}}>
+        <p className={`text-sm text-zinc-100 absolute top-[-3px] right-2`}>{skill.lavel}%</p>
         </div>
         </div>
         </div>
