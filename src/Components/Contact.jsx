@@ -31,10 +31,10 @@ const Contact = () => {
     } else {
       emailjs
         .sendForm(
-          "service_itpl5lq",
-          "template_j9png0o",
+          import.meta.env.VITE_APP_SERVICE_ID,
+          import.meta.env.VITE_APP_TEMPLATE_ID,
           form.current, {
-            publicKey: "FkRzi5LjkTcvvEnnp",
+            publicKey: import.meta.env.VITE_APP_PUBLIC_KEY,
           })
         .then(() => {
           alert("Email sent successfully!");
