@@ -16,12 +16,12 @@ const Skills = () => {
     {
       name: "HTML5",
       icon: <FaHtml5 size='30' className='text-[#EB3400]'/>,
-      lavel: 96,
+      lavel: 98,
     },
     {
       name: "CSS3",
       icon: <FaCss3Alt size='30' className='text-[#006FFF]'/>,
-      lavel: 90,
+      lavel: 95,
     },
     {
       name: "JavaScript",
@@ -31,12 +31,12 @@ const Skills = () => {
     {
       name: "ReactJs",
       icon: <FaReact size='30' className='text-[#00ABFF]'/>,
-      lavel: 80,
+      lavel: 90,
     },
     {
     name: "Tailwind CSS",
     icon: <RiTailwindCssFill size='30' className='text-[#0077FF]'/>,
-    lavel: 75,
+    lavel: 80,
     },
     {
     name: "NodeJs",
@@ -46,12 +46,12 @@ const Skills = () => {
     {
       name: "ExpressJs",
       icon: <SiExpress size='35' className='text-zinc-900'/>,
-      lavel: 70,
+      lavel: 80,
     },
     {
       name: "MongoDB",
       icon: <SiMongodb size='35' className='text-[#47A248]'/>,
-      lavel: 65
+      lavel: 75
     }
     ]
   
