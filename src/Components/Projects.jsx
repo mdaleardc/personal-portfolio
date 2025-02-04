@@ -2,7 +2,7 @@ import yummyFood from "../assets/yummy-food.jpg";
 import ecomerce from "../assets/ecomerce.jpg";
 import todoList from "../assets/todo-list.jpg";
 import youtube_clone from "../assets/youtube_clone_thumbnail.jpg"
-import productLanding from "../assets/product-landing.jpg";
+import bookStoreThumnail from "../assets/bookStoreThumnail.jpg";
 import enquery_mern from "../assets/enquery_mern.jpg";
 
 const Projects = () => {
@@ -33,24 +33,24 @@ const Projects = () => {
     },
     {
       id: 4,
-      name: "Product Landing",
-      img: productLanding,
+      name: "📚 Myanmar Curriculum Books",
+      img: bookStoreThumnail,
       description:
-        "Explore my portfolio: Discover my passion for crafting user-friendly designs and efficient functionality!",
-      url: "https://productlandingweb.netlify.app/",
+        "A website offering free Myanmar curriculum textbooks and answer files for grades 1 to 12. Built for students and teachers to easily access and download educational resources.",
+      url: "https://myanmar-books.netlify.app/",
     },
     {
       id: 5,
       name: "User Inquiry Management System (MERN Stack)",
       img: enquery_mern,
-      description: "A full-stack web app using MongoDB, Express.js, ReactJS, and Node.js for managing user inquiries. It features full CRUD operations with a responsive UI styled by Tailwind CSS. The frontend communicates with a secure backend API, and the server is deployed on Render.",
+      description: "A full-stack web app using MongoDB, Express.js, ReactJS, and Node.js for managing user inquiries. It features full CRUD operations with a responsive UI styled by Tailwind CSS.",
       url: "https://mern-client-enquery.vercel.app/",
     },
     {
       id: 6,
       name: "YouTube Clone",
       img: youtube_clone,
-      description: "YouTube Clone: This project is a simplified YouTube clone built using ReactJS and styled with Tailwind CSS. It demonstrates the ability to design and implement a user-friendly video streaming interface inspired by YouTube's layout.",
+      description: "This project is a simplified YouTube clone built using ReactJS and styled with Tailwind CSS. It demonstrates the ability to design and implement a user-friendly video streaming interface inspired by YouTube's layout.",
       url: "https://youtube-clone-flax-seven.vercel.app",
     }
   ];
