@@ -4,6 +4,7 @@ import todoList from "../assets/todo-list.jpg";
 import youtube_clone from "../assets/youtube_clone_thumbnail.jpg"
 import bookStoreThumnail from "../assets/bookStoreThumnail.jpg";
 import enquery_mern from "../assets/enquery_mern.jpg";
+import blood_donation from "../assets/blood_donation.jpg";
 
 const Projects = () => {
   const projectData = [
@@ -41,10 +42,11 @@ const Projects = () => {
     },
     {
       id: 5,
-      name: "User Inquiry Management System (MERN Stack)",
-      img: enquery_mern,
-      description: "A full-stack web app using MongoDB, Express.js, ReactJS, and Node.js for managing user inquiries. It features full CRUD operations with a responsive UI styled by Tailwind CSS.",
-      url: "https://mern-client-enquery.vercel.app/",
+      name: "Blood Donation Platform",
+      img: blood_donation, // make sure you import or define this image
+      description:
+        "A web platform that connects blood donors and recipients efficiently. Users can register, search by blood type and location, and request donations quickly—supporting emergency needs with a simple, reliable system.",
+      url: "https://vitaldrop.vercel.app",
     },
     {
       id: 6,
