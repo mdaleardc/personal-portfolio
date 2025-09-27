@@ -1,92 +1,118 @@
 import {
-  FaHtml5,
-  FaCss3Alt,
-  FaSquareJs,
   FaReact,
   FaNodeJs,
-  FaDatabase,
+  FaAws,
+  FaGitAlt,
 } from "react-icons/fa6";
 import { RiTailwindCssFill } from "react-icons/ri";
-import { SiExpress, SiMongodb } from "react-icons/si";
+import { SiExpress, SiMongodb, SiNextdotjs, SiJavascript } from "react-icons/si";
 
 const About = () => {
+  const technologies = [
+    { icon: SiNextdotjs, name: "Next.js", color: "text-white" },
+    { icon: SiJavascript, name: "JavaScript", color: "text-[#F7DF1E]" },
+    { icon: FaReact, name: "React", color: "text-cyan-400" },
+    { icon: FaNodeJs, name: "Node.js", color: "text-green-500" },
+    { icon: SiMongodb, name: "MongoDB", color: "text-green-600" },
+    { icon: SiExpress, name: "Express.js", color: "text-green-600" },
+    { icon: RiTailwindCssFill, name: "Tailwind CSS", color: "text-cyan-300" },
+    { icon: FaAws, name: "AWS", color: "text-orange-400" },
+    { icon: FaGitAlt, name: "Git", color: "text-orange-500" },
+  ];
+
   return (
-    <div className="py-[3.3rem] bg-gradient-to-tr from-[#611] to-[#125]">
-      <h1 className="text-4xl text-[#0ef] text-center font-semibold w-fit mx-auto underline p-4">
-        About Me
-      </h1>
-      <div className="text-white text-lg flex flex-col gap-6 px-6">
-        <p className="indent-8 max-w-lg mx-auto text-justify leading-relaxed">
-          Hi, I'm Mohammed Ismail, a full-stack developer passionate about
-          building dynamic and user-friendly web applications. My journey into
-          web development began as a primary teacher, where I developed strong
-          problem-solving and communication skills. Over time, I discovered my
-          love for technology and started teaching myself{" "}
-          <span>
-            HTML <FaHtml5 className="inline text-[#FF2E00] rounded" />
-          </span>
-          ,{" "}
-          <span>
-            CSS <FaCss3Alt className="inline text-[#002Eff] rounded" />
-          </span>
-          , and{" "}
-          <span>
-            JavaScript <FaSquareJs className="inline text-[#feFa00] rounded" />
-          </span>
-          , which opened up a world of possibilities for me.
-        </p>
+    <section id="about" className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      <div className="container mx-auto px-6 max-w-6xl">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4">
+            About Me
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full"></div>
+        </div>
 
-        <p className="indent-8 max-w-lg mx-auto text-justify leading-relaxed">
-          I enjoy turning ideas into real, interactive experiences that leave a
-          lasting impression. My core strengths include adaptability,
-          creativity, and the ability to learn and grow quickly. On the
-          front-end, I specialize in building responsive layouts with{" "}
-          <span>
-            Tailwind CSS{" "}
-            <RiTailwindCssFill className="inline text-[#0094FF] rounded" />
-          </span>{" "}
-          and creating seamless user interfaces with{" "}
-          <span>
-            ReactJS <FaReact className="inline text-[#00a9ff] rounded" />
-          </span>
-          .
-        </p>
+        {/* Content Grid */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Text Content */}
+          <div className="space-y-6">
+            <div className="prose prose-lg prose-invert max-w-none">
+              <p className="text-xl leading-relaxed text-gray-200">
+                Hello! I&apos;m <span className="text-cyan-400 font-semibold">Mohammed Ismail </span>, 
+                a <span className="text-blue-400 font-semibold">Next.js Full-Stack Developer </span> 
+                with a unique background in education. My journey from teaching to tech has equipped 
+                me with exceptional problem-solving abilities and a user-centric approach to development.
+              </p>
 
-        <p className="indent-8 max-w-lg mx-auto text-justify leading-relaxed">
-          To enhance my skills further, I have delved into back-end development,
-          where I build scalable APIs using{" "}
-          <span>
-            Node.js <FaNodeJs className="inline text-[#76b852] rounded" />
-          </span>{" "}
-          and{" "}
-          <span>
-            Express.js <SiExpress className="inline text-[#aaa] rounded" />
-          </span>
-          . For data storage and management, I work with{" "}
-          <span>
-            MongoDB <SiMongodb className="inline text-[#4DB33D] rounded" />
-          </span>{" "}
-          and{" "}
-          <span>
-            databases <FaDatabase className="inline text-[#f0db4f] rounded" />
-          </span>
-          . My goal is to create robust full-stack applications that efficiently
-          handle both client and server-side interactions.
-        </p>
+              <p className="text-lg leading-relaxed text-gray-300">
+                I specialize in building modern, scalable web applications using cutting-edge technologies. 
+                My expertise spans the entire development stack, from crafting responsive UI/UX with 
+                React and Tailwind CSS to architecting robust backend systems with Node.js and MongoDB.
+              </p>
 
-        <p className="indent-8 max-w-lg mx-auto text-justify leading-relaxed">
-          When I'm not coding, you will find me exploring new teaching
-          techniques, contributing to community projects, or deepening my
-          knowledge of cloud technologies. I'm always eager to learn new
-          technologies and refine my skills to build impactful digital
-          experiences.
-        </p>
+              <p className="text-lg leading-relaxed text-gray-300">
+                What sets me apart is my ability to bridge technical requirements with user needs, 
+                creating solutions that are not only technically sound but also intuitive and engaging. 
+                I&apos;m passionate about writing clean, maintainable code and staying current with industry trends.
+              </p>
+            </div>
 
-        <button className="max-w-sm rounded-sm bg-gray-700 text-white font-semibold block text-center mx-auto p-2">
-          <a href="/about">More About Me</a>
-        </button>
+            {/* CTA Button */}
+            <div className="flex gap-4 pt-4">
+              <a 
+                href="/about" 
+                className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25"
+              >
+                View Full Portfolio
+              </a>
+              <a 
+                href="/contact" 
+                className="px-8 py-3 border border-cyan-400 text-cyan-400 font-semibold rounded-lg hover:bg-cyan-400 hover:text-slate-900 transition-all duration-300"
+              >
+                Get In Touch
+              </a>
+            </div>
+          </div>
+
+          {/* Technologies Grid */}
+          <div className="lg:pl-12">
+            <h3 className="text-2xl font-semibold text-white mb-8 text-center lg:text-left">
+              Core Technologies
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+              {technologies.map((tech) => (
+                <div
+                  key={tech.name}
+                  className="group relative bg-white/5 backdrop-blur-sm rounded-xl p-4 hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-cyan-400/30"
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <tech.icon className={`text-3xl mb-2 ${tech.color} group-hover:scale-110 transition-transform duration-300`} />
+                    <span className="text-sm font-medium text-gray-200 group-hover:text-white">
+                      {tech.name}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Stats Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 pt-12 border-t border-white/10">
+          <div className="text-center">
+            <div className="text-3xl font-bold text-cyan-400 mb-2">2+</div>
+            <div className="text-gray-400">Years Experience</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-blue-400 mb-2">50+</div>
+            <div className="text-gray-400">Projects Completed</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-purple-400 mb-2">100%</div>
+            <div className="text-gray-400">Client Satisfaction</div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
