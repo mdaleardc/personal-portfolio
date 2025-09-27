@@ -1,5 +1,5 @@
-import { Link, NavLink } from "react-router-dom";
-import logopng from "../assets/weblogo.jpg";
+import { NavLink } from "react-router-dom";
+import logopng from "../assets/brandlogo.jpg";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross1 } from "react-icons/rx";
 import { useState } from "react";
@@ -14,7 +14,7 @@ const Navbar = () => {
     <div>
     <div className='w-full h-[3rem] bg-gradient-to-r from-blue-700 to-green-800 grid grid-cols-6 sm:justify-items-tretch items-center text-2xl font-semibold text-white fixed top-0 left-0 px-[4px] z-[999]'>
         <NavLink to="/">
-        <img src={logopng} alt="website logo" className="w-[45px] rounded-[50%] align-middle sm:col-span-1"/>
+        <img src={logopng} alt="website logo" className="w-[40px] p-0.5 rounded-[50%] align-middle sm:col-span-1"/>
         </NavLink>
       <ul className='hidden col-span-5 sm:grid gap-x-[10px] grid-cols-5 justify-center items-center mx-auto'>
       <NavLink to="/home">

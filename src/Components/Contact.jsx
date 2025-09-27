@@ -1,11 +1,12 @@
-import 'boxicons';
-import { FaXTwitter } from "react-icons/fa6";
 import { useState, useRef } from "react";
 import emailjs from '@emailjs/browser';
+import { FaTwitter, FaLinkedin, FaEnvelope, FaPhone, FaFacebookF, FaPaperPlane, FaMapMarkerAlt } from "react-icons/fa";
+import { SiNextdotjs } from "react-icons/si";
 
 const Contact = () => {
   const form = useRef();
-  const [value, setValue] = useState({
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     message: "",
@@ -17,126 +18,274 @@ const Contact = () => {
   };
 
   const handleChange = (e) => {
-    setValue({ ...value, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (value.fullName.trim() === "") {
+    setIsSubmitting(true);
+
+    // Validation
+    if (formData.fullName.trim() === "") {
       alert("Please enter your full name!");
-    } else if (value.email.trim() === "" || !validateEmail(value.email)) {
+      setIsSubmitting(false);
+      return;
+    }
+    
+    if (formData.email.trim() === "" || !validateEmail(formData.email)) {
       alert("Please enter a valid email address!");
-    } else if (value.message.trim() === "") {
+      setIsSubmitting(false);
+      return;
+    }
+    
+    if (formData.message.trim() === "") {
       alert("Please enter your message!");
-    } else {
-      emailjs
-        .sendForm(
-          import.meta.env.VITE_APP_SERVICE_ID,
-          import.meta.env.VITE_APP_TEMPLATE_ID,
-          form.current, {
-            publicKey: import.meta.env.VITE_APP_PUBLIC_KEY,
-          })
-        .then(() => {
-          alert("Email sent successfully!");
-          setValue({ fullName: "", email: "", message: "" });
-        })
-        .catch((error) => {
-          console.error("Failed to send email", error.text);
-          alert("An error occurred while sending the email. Please try again later.");
-        });
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+        
+      await emailjs.sendForm(
+        import.meta.env.VITE_APP_SERVICE_ID,
+        import.meta.env.VITE_APP_TEMPLATE_ID,
+        form.current, {
+        publicKey: import.meta.env.VITE_APP_PUBLIC_KEY, }
+      );
+      
+      alert("Message sent successfully! I'll get back to you soon.");
+      setFormData({ fullName: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Failed to send email", error);
+      alert("An error occurred while sending the message. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
+  
+    const socialLinks = [
+    {
+      icon: FaLinkedin,
+      href: "https://bd.linkedin.com/in/mohammed-ismail-601457217",
+      label: "LinkedIn",
+      color: "hover:text-blue-400"
+    },
+    {
+      icon: FaFacebookF,
+      href: "https://www.facebook.com/mdaismail.it",
+      label: "Facebook",
+      color: "hover:text-blue-600"
+    },
+    {
+      icon: FaTwitter,
+      href: "https://x.com/MdIsmail5851415",
+      label: "Twitter",
+      color: "hover:text-black"
+    },
+    {
+      icon: FaEnvelope,
+      href: "mailto:ismailmd.code@gmail.com",
+      label: "Email",
+      color: "hover:text-red-400"
+    }
+  ];
+
 
   return (
-    <div className="py-[3rem] bg-gradient-to-tr from-[#123] to-[#321]">
-    
-    <div className='text-white text-xl font-normal tracking-wider px-4 flex flex-col gap-2'>
-    <h2 className='text-[#0ef] text-3xl font-semibold text-center py-[1rem]'>Let's Collaborate With Me</h2>
-    <p className='indent-8 max-w-lg mx-auto text-justify leading-relaxed'>Are you passionate about web development and looking for an opportunity to collaborate with a dedicated and skilled developer? Look no further!</p>
-    <h3 className='text-yellow-500 text-center font-semibold text-2xl py-[0.5rem]'>What I'm Looking For:</h3>
-    <p className='indent-8 max-w-lg mx-auto text-justify leading-relaxed'>I'm seeking like-minded individuals who are enthusiastic about creating stunning websites and web applications. Whether you're a designer, developer, or have skills in project management, I believe that collaboration is key to delivering exceptional results.</p>
-    <h3 className='text-yellow-500 text-center font-semibold text-2xl py-[0.5rem]'>How We Can Work Together?</h3>
-    <p className='indent-8 max-w-lg mx-auto text-justify leading-relaxed'>If you're interested in teaming up with me for web development projects, here's what you can expect:</p>
-    <ul className='my-[1.5rem] list-disc max-w-4/5 mx-auto'>
-    <li className='max-w-lg mx-auto text-justify leading-relaxed'><span className='text-2xl font-semibold'>Collaborative Ideation:</span> We'll brainstorm ideas and come up with innovative solutions together.</li>
-    <li className='max-w-lg mx-auto text-justify leading-relaxed'><span className='text-2xl font-semibold'>Skill Sharing:</span> Share your expertise, and I'll do the same, fostering a learning environment for both of us.</li>
-    <li className='max-w-lg mx-auto text-justify leading-relaxed'><span className='text-2xl font-semibold'>Timely Communication:</span> Clear and open communication is crucial for project success, and I'm committed to keeping the lines of communication open throughout our collaboration.</li>
-    </ul>
-    <h3 className='text-green-500 text-center font-semibold text-2xl py-[0.5rem]'>Get in Touch</h3>
-    <p className='indent-8 max-w-lg mx-auto text-justify leading-relaxed'>If you're ready to embark on an exciting journey of web development collaboration, I'd love to hear from you! Feel free to reach out to me via the contact form below.</p>
-    <p className='max-w-lg pt-4 text-right leading-relaxed'><em>Let's build something amazing together!</em></p>
-    </div>
-    <div>
-    <h1 className='text-6xl text-white text-center font-semibold py-4'>Contact <span className='text-6xl font-semibold text-[#0ef] italic'>Me</span></h1>
-    <hr className='h-[3px] w-[15rem] mx-auto mt-[-1rem] bg-white border-white'/>
-    
-    <div className='text-white flex flex-col gap-y-[1rem] max-w-lg mx-auto pl-4 sm:pl-0 pt-6 text-2xl font-light tracking-wider'>
-    <a href='tel:+8801879449789' className='cursor-pointer flex items-center gap-2'> <box-icon name="phone" color='#0ef'> </box-icon>  01608-947513</a>
-    <a href='mailto:dismailait@gmail.com' className='cursor-pointer flex items-center gap-2'><box-icon name='envelope' color='#0ef'> </box-icon> dismailait@gmail.com</a>
-    <div className='my-[2rem] flex flex-row gap-x-5 items-center'>
-    <a href='https://www.facebook.com/mdaismail.it' className='block' target='_blank'><box-icon name='facebook-circle' size='30px' color='#0ef' type='logo'> </box-icon></a>
-    <a href='https://x.com/MdIsmail5851415' className='text-[#0ef]' target='_blank'><FaXTwitter size='27'/></a>
-    <a href='https://github.com/mdaleardc' className='block' target='_blank'><box-icon name='github' size='30px' color='#0ef' type='logo'> </box-icon></a>
-    <a href='https://bd.linkedin.com/in/mohammed-ismail-601457217' className='block' target='_blank'><box-icon name='linkedin' size='35px' color='#0ef' type='logo'> </box-icon></a>
-    
-    </div>
-    </div>
-    </div>
-      <div className='mx-2'>
-      <h1 className="text-[#0ef] text-center text-2xl font-semibold my-1 tracking-wider">What is on Your Mind?</h1>
-      <p className="text-white text-center tracking-wider">Feel free to share even if you have a very small idea on your mind.</p>
+    <section id="contact" className="relative py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
       </div>
-      <div className="mx-[5px] sm:mx-auto max-w-lg py-[1rem] border-2 border-white rounded">
-        <form
-          className="flex flex-col gap-y-2 justify-center items-center"
-          onSubmit={handSubmit}
-          ref={form}
-          method="post"
-        >
-          <div className="w-5/6">
-            <label htmlFor="fullName" className="sr-only">Full Name</label>
-            <input
-              id="fullName"
-              name="fullName"
-              type="text"
-              placeholder="Full name"
-              value={value.fullName}
-              onChange={handleChange}
-              className="outline-none w-full h-[2rem] rounded-md p-[5px] text-white border-[1px] border-white bg-transparent tracking-wider focus:border-[#0ef] focus:shadow-md"
-            />
+
+      <div className="container mx-auto px-6 max-w-6xl relative z-10">
+        {/* Header Section */}
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-4">
+            Let's Work Together
+          </h2>
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            Ready to bring your ideas to life? Let's discuss your project and create something amazing.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Contact Information */}
+          <div className="space-y-8">
+            {/* Introduction */}
+            <div className="bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 p-8">
+              <h3 className="text-2xl font-bold text-white mb-4">Get In Touch</h3>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                I'm always excited to collaborate on innovative projects. Whether you need a full-stack application, 
+                a modern website, or technical consultation, I'm here to help bring your vision to reality.
+              </p>
+              
+              <div className="flex items-center gap-3 text-cyan-400">
+                <SiNextdotjs className="text-2xl" />
+                <span className="font-semibold">Next.js Full-Stack Developer</span>
+              </div>
+            </div>
+
+            {/* Contact Details */}
+            <div className="bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 p-8">
+              <h4 className="text-xl font-semibold text-white mb-6">Contact Information</h4>
+              
+              <div className="space-y-4">
+                <a href="tel:+8801879449789" className="flex items-center gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300 group">
+                  <div className="p-3 bg-cyan-500/20 rounded-2xl group-hover:bg-cyan-500/30 transition-all duration-300">
+                    <FaPhone className="text-cyan-400 text-lg" />
+                  </div>
+                  <div>
+                    <div className="text-gray-400 text-sm">Phone</div>
+                    <div className="text-white font-medium">+880 01879449789</div>
+                  </div>
+                </a>
+
+                <a href="mailto:ismailmd.code@gmail.com" className="flex items-center gap-4 p-3 rounded-lg hover:bg-white/5 transition-all duration-300 group">
+                  <div className="p-3 bg-purple-500/20 rounded-2xl group-hover:bg-purple-500/30 transition-all duration-300">
+                    <FaEnvelope className="text-purple-400 text-lg" />
+                  </div>
+                  <div>
+                    <div className="text-gray-400 text-sm">Email</div>
+                    <div className="text-white font-medium">ismailmd.code@gmail.com</div>
+                  </div>
+                </a>
+
+                <div className="flex items-center gap-4 p-3 rounded-lg">
+                  <div className="p-3 bg-green-500/20 rounded-2xl">
+                    <FaMapMarkerAlt className="text-green-400 text-lg" />
+                  </div>
+                  <div>
+                    <div className="text-gray-400 text-sm">Location</div>
+                    <div className="text-white font-medium">Bangladesh</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Social Links */}
+              <div className="mt-8">
+                <h5 className="text-lg font-semibold text-white mb-4">Connect with me</h5>
+                <div className="flex gap-4">
+                  {socialLinks.map((social) => (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 bg-white/5 rounded-2xl border border-white/10 hover:border-cyan-400/30 transition-all duration-300 group"
+                      title={social.label}
+                    >
+                      <social.icon className={`text-gray-400 text-xl group-hover:text-white ${social.color} transition-colors duration-300`} />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="w-5/6">
-            <label htmlFor="email" className="sr-only">Email Address</label>
-            <input
-              id="email"
-              name="email"
-              type="text"
-              placeholder="Email address"
-              value={value.email}
-              onChange={handleChange}
-              className="outline-none w-full h-[2rem] rounded-md p-[5px] text-white border-[1px] border-white bg-transparent tracking-wider focus:border-[#0ef] focus:shadow-md"
-            />
+
+          {/* Contact Form */}
+          <div className="bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 p-8">
+            <h3 className="text-2xl font-bold text-white mb-2">Send me a message</h3>
+            <p className="text-gray-400 mb-6">Let's discuss your project requirements</p>
+
+            <form ref={form} onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="fullName" className="block text-sm font-medium text-gray-300 mb-2">
+                  Full Name *
+                </label>
+                <input
+                  id="fullName"
+                  name="fullName"
+                  type="text"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  placeholder="Your full name"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400/50 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  Email Address *
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="your.email@example.com"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400/50 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                  Your Message *
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Tell me about your project, timeline, and requirements... Email or contact number write here"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400/50 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300 resize-none"
+                  required
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-semibold rounded-xl hover:from-cyan-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <FaPaperPlane className="text-sm" />
+                    Send Message
+                  </>
+                )}
+              </button>
+            </form>
+
+            {/* Response Time */}
+            <div className="mt-6 p-4 bg-cyan-500/10 rounded-xl border border-cyan-400/20">
+              <p className="text-sm text-cyan-400 text-center">
+                💡 Typically reply within 2-4 hours during business days
+              </p>
+            </div>
           </div>
-          <div className="w-5/6">
-            <label htmlFor="message" className="sr-only">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              placeholder="Write your message"
-              value={value.message}
-              onChange={handleChange}
-              className="outline-none w-full rounded-md p-[5px] text-white border-[1px] border-white bg-transparent tracking-wider focus:border-[#0ef] focus:shadow-md"
-            ></textarea>
+        </div>
+
+        {/* CTA Section */}
+        <div className="text-center mt-16">
+          <div className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10 backdrop-blur-lg rounded-2xl border border-cyan-400/20 p-8 max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-4">
+              Ready to start your project?
+            </h3>
+            <p className="text-gray-300 mb-6">
+              Let's schedule a call to discuss your requirements in detail and create a plan for success.
+            </p>
+            <a 
+              href="tel:+8801879449789" 
+              className="inline-flex items-center gap-2 px-8 py-3 bg-white text-slate-900 font-semibold rounded-xl hover:bg-gray-100 transition-all duration-300"
+            >
+              <FaPhone className="text-sm" />
+              Schedule a Call
+            </a>
           </div>
-          <input
-            type="submit"
-            value="Send"
-            className="rounded-md uppercase text-white border-2 p-2 py-1 tracking-wider cursor-pointer bg-[#0090FF] hover:bg-[#0ef] hover:text-black"
-          />
-        </form>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
