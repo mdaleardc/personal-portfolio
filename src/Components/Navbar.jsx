@@ -14,7 +14,9 @@ const Navbar = () => {
     <div>
     <div className='w-full h-[3rem] bg-gradient-to-r from-blue-700 to-green-800 grid grid-cols-6 sm:justify-items-tretch items-center text-2xl font-semibold text-white fixed top-0 left-0 px-[4px] z-[999]'>
         <NavLink to="/">
-        <img src={logopng} alt="website logo" className="w-[40px] p-0.5 rounded-[50%] align-middle sm:col-span-1"/>
+          <div className="w-[40px] h-[40px] rounded-full border-[2px] border-[#00F3FF] shadow-[0_0_6px_#00F3FF,0_0_12px_#00F3FF,0_0_24px_#00F3FF] animate-pulse">
+        <img src={logopng} alt="website logo" className="w-full h-full rounded-full align-middle sm:col-span-1 object-"/>
+        </div>
         </NavLink>
       <ul className='hidden col-span-5 sm:grid gap-x-[10px] grid-cols-5 justify-center items-center mx-auto'>
       <NavLink to="/home">
