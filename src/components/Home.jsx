@@ -9,7 +9,7 @@ import Contact from "./Contact"
  
  const Home = () => {
   return (
-    <div className='mt-[3rem]'>
+    <div>
     <MyProfile />
     <Projects />
     <Skills />

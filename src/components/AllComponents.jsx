@@ -10,7 +10,7 @@ import Contact from "./Contact"
 const AllComponents = () => {
   
   return (
-    <div className="mt-[3rem]">
+    <div>
     <MyProfile />
     <Projects />
     <Skills />

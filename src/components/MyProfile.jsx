@@ -55,7 +55,7 @@ const MyProfile = () => {
   ];
 
   return (
-    <section id="profile" className="min-h-screen relative overflow-hidden">
+    <section id="profile" className="bg-red-200 min-h-screen relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/80 via-orange-900/70 to-indigo-900/90">
         <div className="absolute top-0 left-0 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -94,7 +94,7 @@ const MyProfile = () => {
               </p>
               
               <p className="text-lg text-gray-300 leading-relaxed">
-                I specialize in building <span className="text-purple-400 font-semibold">modern, scalable applications</span> 
+                I specialize in building <span className="text-cyan-400 font-semibold">modern, scalable applications</span> 
                 using cutting-edge technologies. My expertise spans from crafting intuitive user interfaces 
                 to architecting robust backend systems that deliver exceptional performance and user experiences.
               </p>
