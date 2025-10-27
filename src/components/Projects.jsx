@@ -49,11 +49,11 @@ const Projects = () => {
     },
     {
       id: 4,
-      name: "Myanmar Books Hub",
+      name: "Myanmar Book Space",
       img: bookStoreThumnail,
       description: "Full-stack educational platform providing free Myanmar curriculum textbooks for grades 1-12. Features user authentication, book management, download tracking, and admin dashboard.",
       url: "https://mmbookshub.netlify.app/",
-      github: "https://github.com/yourusername/myanmar-books-hub",
+      github: "https://github.com/yourusername/myanmar-book-space",
       technologies: [SiNextdotjs, SiNodedotjs, SiMongodb, SiExpress],
       category: "Full-Stack",
       featured: true,
